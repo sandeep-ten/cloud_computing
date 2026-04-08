@@ -1,0 +1,99 @@
+Linux - First Car - 1991
+
+ An operating system (OS) is software that manages all the hardware resources of a computer, facilitating communication between software applications and hardware components.
+
+Linux is available in over 600 distributions (or an operating system based on the Linux kernel and supporting software and libraries). Some of the most popular and well-known being Ubuntu, Debian, Fedora, OpenSUSE, elementary, Manjaro, Gentoo Linux, RedHat, and Linux Mint.
+
+
+
+Principles: 
+Everything is a file
+Configuration data stored in a text file
+Ability to chain programs together to perform complex tasks
+
+
+Background services are called "daemons" in Linux.
+
+
+File System Hierarchy(FHS) Standard
+/ - Root(In the world of Linux and Hack The Box, / is the Root Directory. It is the absolute beginning of the entire filesystem. Everything on the machine—every file, every user's home folder, every connected drive—is a "child" of /).
+
+/bin - binary like tools (Why /bin Matters for a Hacker
+When you first get a "shell" (access) on a machine, your interaction with /bin usually falls into three categories:
+
+The Shell itself: Usually, your first goal is to spawn a more stable shell, often found at /bin/bash or /bin/sh.
+
+Standard Tools: This is where your basic survival tools live—ls, cat, grep, cp, and nc (netcat).
+
+Privilege Escalation (SUID Bits): This is the "Pro" move. Sometimes, a binary in /bin has a "Set User ID" (SUID) bit. If a tool like cp or find has an SUID bit set to root, you can use it to read files you shouldn't see (like /etc/shadow) or overwrite system files to become root.)
+
+/boot - bootloader (the engine)Consists of the static bootloader, kernel executable, and files required to boot the Linux OS.
+
+/dev - devices (the hardware)Contains device files to facilitate access to every hardware device attached to the system.
+
+/etc - (the secrets and settings)=Command Center, If you want to "own" a Linux system, /etc is where you'll spend most of your time. In the Linux world, /etc (short for et cetera, though many call it "Editable Text Configurations") contains all the system-wide configuration files.
+
+/home - Each user on the system has a subdirectory here for storage.
+
+/lib, /lib32 & /lib64 - (shared gears) Shared library files that are required for system boot.
+
+/media & /mnt - (The Difference Between the Two
+/media: Usually used for removable devices that are automatically detected by the system (USB sticks, CD-ROMs, external hard drives).
+
+/mnt (Mount): Usually used by administrators to manually attach a filesystem (like a secondary hard drive or a network share).)
+
+
+External removable media devices such as USB drives are mounted here.
+Temporary mount point for regular filesystems.
+
+/opt (optional) is a gold mine because custom software is often less secure than standard system tools.
+
+/proc - the brain's live feed - Welcome to one of the "weirdest" parts of Linux. /proc (short for Process) is a virtual filesystem. It doesn’t actually exist on your hard drive; the Linux Kernel creates it in memory to show you exactly what is happening inside the computer right now.
+
+/root - On a Linux system, the root user is God. They can read any file, delete any user, and shut down any process.
+
+/run - If /proc is the brain, /run is the pulse. This is a modern Linux directory (a tmpfs or RAM-based filesystem) that stores runtime information that has accumulated since the system last booted.
+
+/sbin - the power tools - If /bin contains the basic tools like a hammer and screwdriver, /sbin (short for System Binaries) contains the heavy-duty machinery. These programs are primarily intended for the System Administrator (root) to configure and maintain the system.
+
+/sys - the hardware control panel - Like /proc, /sys is a virtual filesystem (specifically sysfs). It doesn't live on the disk; it’s a window provided by the kernel. While /proc focuses on processes (the software's brain), /sys focuses on the physical hardware and its drivers.
+
+/tmp — The Dirty Playground
+If you are a hacker on a Linux system, /tmp is your home away from home. This directory is used for temporary files, and it has one special rule that makes it a "Pro" favorite: almost anyone can write to it.
+
+/var — The Memory Bank
+If the other directories are the "skeleton" and "muscles" of the system, /var (short for Variable) is the "memory bank." It contains files that are constantly changing while the system is running—logs, databases, and temporary email spools.
+
+
+
+
+Debian
+Debian is a widely used and well-respected Linux distribution known for its stability and reliability. It is used for various purposes, including desktop computing, servers, and embedded system. It uses an Advanced Package Tool (apt) package management system to handle software updates and security patches. The package management system helps keep the system up-to-date and secure by automatically downloading and installing security updates as soon as they are available. This can be executed manually or set up automatically.
+
+Stability and reliability are key strengths of Debian. The distribution is known for its long-term support releases, which can provide updates and security patches for up to five years.
+
+Shell
+A Linux terminal, also called a shell or command line, provides a text-based input/output (I/O) interface between users and the kernel for a computer system. The term console is also typical but does not refer to a window but a screen in text mode. In the terminal window, commands can be executed to control the system.
+The most commonly used shell in Linux is the Bourne-Again Shell (BASH), and is part of the GNU project.
+Besides Bash, there also exist other shells like Tcsh/Csh, Ksh, Zsh, Fish shell and others.
+
+Command	Description
+whoami	Displays current username.
+id	Returns users identity
+hostname	Sets or prints the name of current host system.
+uname	Prints basic information about the operating system name and system hardware.
+pwd	Returns working directory name.
+ifconfig	The ifconfig utility is used to assign or to view an address to a network interface and/or configure network interface parameters.
+ip	Ip is a utility to show or manipulate routing, network devices, interfaces and tunnels.
+netstat	Shows network status.
+ss	Another utility to investigate sockets.
+ps	Shows process status.
+who	Displays who is logged in.
+env	Prints environment or sets and executes command.
+lsblk	Lists block devices.
+lsusb	Lists USB devices
+lsof	Lists opened files.
+lspci	Lists PCI devices.
+
+
+
